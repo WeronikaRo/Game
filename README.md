@@ -3,4 +3,4 @@ First game
 
 All drawings are my authorship
 
-Part-1: walking, jumping
+Part-1: inserting elements
