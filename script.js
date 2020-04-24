@@ -20,8 +20,8 @@ var game = new Phaser.Game(config);
 var platforms;
 
 function preload(){
-    this.load.image('day', 'img/day.png');
-    this.load.image('floor', 'img/floor.png');
+    this.load.image('day', 'image/day.png');
+    this.load.image('floor', 'image/floor.png');
 }
 
 
