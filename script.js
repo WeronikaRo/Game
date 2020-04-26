@@ -16,12 +16,14 @@ const config = {
     }
 };
 
-var game = new Phaser.Game(config);
-var platforms;
+let game = new Phaser.Game(config);
+let platforms;
+let player;
 
 function preload(){
     this.load.image('day', 'image/day.png');
     this.load.image('floor', 'image/floor.png');
+    this.load.spritesheet('black', 'image/black.png', {frameWidth: 32, frameHeight: 48});
 }
 
 
@@ -33,6 +35,11 @@ function create(){
     platforms.create(150, 350, 'floor');
     platforms.create(550, 225, 'floor');
     platforms.create(700, 450, 'floor');
+    
+    player = this.physics.add.sprite(100, 450, 'black');
+
+    player.setBounce(0.3);
+    player.setCollideWorldBounds(true);
 
 }
 
