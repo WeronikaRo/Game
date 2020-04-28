@@ -41,6 +41,7 @@ function create(){
     player.setBounce(0.3);
     player.setCollideWorldBounds(true);
 
+    this.physics.add.collider(player, platforms);
 }
 
 function update (){
