@@ -15,6 +15,8 @@ Part-3: bounce and standing on the platform
 
 Part-4: moving
 
+Part-5: faster falling and jumping
+
 ----------------
 
 Web server - Xampp

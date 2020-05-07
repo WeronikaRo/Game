@@ -38,8 +38,8 @@ function create(){
     
     player = this.physics.add.sprite(100, 450, 'black');
 
-    player.setBounce(0.3);
-    player.setCollideWorldBounds(true);
+    // player.setBounce(0.3);
+    // player.setCollideWorldBounds(true);
 
     this.anims.create({
         key: 'left',
@@ -64,6 +64,9 @@ function create(){
     this.physics.add.collider(player, platforms);
 
     cursors = this.input.keyboard.createCursorKeys();
+
+    player.body.setGravityY(300);
+
 }
 
 function update (){
@@ -78,4 +81,7 @@ function update (){
         player.anims.play('turn');
     }
 
+    if(cursors.space.isDown && player.body.touching.down){
+        player.setVelocityY(-390);
+    }
 }
