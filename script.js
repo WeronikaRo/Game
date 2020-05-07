@@ -66,6 +66,7 @@ function create(){
     cursors = this.input.keyboard.createCursorKeys();
 
     player.body.setGravityY(300);
+
 }
 
 function update (){
