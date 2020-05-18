@@ -17,6 +17,8 @@ Part-4: moving
 
 Part-5: faster falling and jumping
 
+Part-6: adding strawberries
+
 ----------------
 
 Web server - Xampp

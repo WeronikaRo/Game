@@ -19,15 +19,18 @@ const config = {
 let game = new Phaser.Game(config);
 let platforms;
 let player;
+let cursors;
+let strawberrys;
 
-function preload(){
+function preload (){
     this.load.image('day', 'image/day.png');
     this.load.image('floor', 'image/floor.png');
-    this.load.spritesheet('black', 'image/black.png', {frameWidth: 32, frameHeight: 48});
+    this.load.image('strawberry', 'image/strawberry.png');
+    this.load.spritesheet('black', 'image/black.png', { frameWidth: 32, frameHeight: 48 });
 }
 
 
-function create(){
+function create (){
     this.add.image(400, 300, 'day');
     platforms = this.physics.add.staticGroup();
 
@@ -35,11 +38,11 @@ function create(){
     platforms.create(150, 350, 'floor');
     platforms.create(550, 225, 'floor');
     platforms.create(700, 450, 'floor');
-    
+
     player = this.physics.add.sprite(100, 450, 'black');
 
-    // player.setBounce(0.3);
-    // player.setCollideWorldBounds(true);
+    //player.setBounce(0.3);
+    //player.setCollideWorldBounds(true);
 
     this.anims.create({
         key: 'left',
@@ -61,11 +64,25 @@ function create(){
         repeat: -1
     });
 
+    player.body.setGravityY(300);
+
     this.physics.add.collider(player, platforms);
 
     cursors = this.input.keyboard.createCursorKeys();
 
-    player.body.setGravityY(300);
+    strawberrys = this.physics.add.group({
+        key: 'strawberry',
+        repeat: 9,
+        setXY: {x: 12, y: 0, stepX:75}
+    });
+
+    strawberrys.children.iterate(function(child){
+        child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+    });
+    
+    this.physics.add.collider(strawberrys, platforms);
+
+
 
 }
 
